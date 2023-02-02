@@ -1,0 +1,32 @@
+
+public class Solution 
+{
+    public static ArrayList<Integer> getLeftView(TreeNode  <Integer> root) 
+    {
+        ArrayList<Integer> arr = new ArrayList<>();
+        Queue <TreeNode> q =  new LinkedList<>();
+        if(root == null){
+            return arr;
+        }
+        q.add(root);
+        while(!q.isEmpty()){
+            int siz = q.size();
+            for(int i=0;i<siz;i++){
+                TreeNode<Integer> tmp = q.poll();
+                if (i == 0)  
+                    {  
+                        arr.add(tmp.data);
+                    } 
+                if(tmp.left != null){
+                    q.add(tmp.left);
+                }
+                if(tmp.right != null){
+                    q.add(tmp.right);
+                }
+            }
+            
+        }
+        return arr;
+        //    Write your code here.
+    }
+}
